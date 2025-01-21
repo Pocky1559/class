@@ -3,9 +3,9 @@ weight = float(input("weight: "))
 height = float(input("insert height: "))
 bmi = weight / (height ** 2)
 
-print(f"your BMI is: {bmi}")
+print("your BMI is: ", bmi)
 if bmi < 18.50 :
-    print("you are too thin")
+    print("you are too thin!")
 elif bmi >= 18.50 and bmi < 25.00 :
     print("you are normal")
 elif bmi >= 25.00 and bmi < 30.00 :
