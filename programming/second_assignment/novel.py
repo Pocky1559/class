@@ -43,6 +43,7 @@ class novel :
       need_info[info["variable_name"]] = input(info["text"])
       need_info["current_route_id"] = info["next_route_id"]
       self.__init__()
+      self.show_dialog()
 
     
 
