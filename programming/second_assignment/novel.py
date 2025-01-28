@@ -6,8 +6,6 @@ need_info = {
   "name": None
 }
 
-print(need_info)
-
 print(
   "Welcome to my visual novel game!",
   "This is an assignment from my teacher.",
@@ -21,16 +19,20 @@ input("Click Enter to play...")
 class novel :
   def __init__(self):
     self.matching_route = None
+    i = 0
 
     for route in routes :
       if need_info["current_route_id"] == route["id"] :
         self.matching_route = route
         break
+      elif i > len(routes) :
+        print("Error access the database")
+        print(f"{need_info["current_route_id"]} does not exist")
+        sys.exit()
+      else :
+        i = i + 1
+
       
-      print("Error access the database")
-      print(f"{need_info["current_route_id"]} does not exist")
-      sys.exit()
-  
   def show_dialog(self) :
     for text in self.matching_route["dialogs"] :
       print(text)
