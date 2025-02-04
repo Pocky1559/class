@@ -130,7 +130,7 @@ def option1() :
     ])
 
   else :
-    print("Please put the number 0-2")
+    print("Please put the number 1-3")
     time.sleep(2)
     option1()
 
