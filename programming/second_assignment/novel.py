@@ -1,10 +1,13 @@
+# import all importan file
 import time
 import os
 import platform
 
+# set all of the necessary variable
 game_name = "Starlight Serenade"
 name = "Pocky"
 
+# set all of the necessary function
 def reset_terminal() :
   system_name = platform.system()
 
@@ -66,6 +69,7 @@ def show_option(array) :
   for text in array :
     print(text)
 
+# run the game
 welcome_screen()
 
 reset_terminal()
