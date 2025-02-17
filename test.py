@@ -1,4 +1,4 @@
-# While loop
+# While loop test
 
 a = int(input())
 i= 1
@@ -23,3 +23,19 @@ while True :
   elif x < 10 :
     print(x)
     x += 1
+
+# if elif else test
+ending_score = {
+  'ending1': 10,
+  'ending2': 99,
+  'ending3': 1
+}
+
+if ending_score['ending3'] > 0 :
+  print('you get ending 3')
+elif ending_score['ending2'] > 0 :
+  print('you get ending 2')
+elif ending_score['ending1'] > 0 :
+  print('you get ending 1')
+else :
+  print('error no information in ending_score variable')

@@ -200,7 +200,7 @@ while True :
     break
   
   elif chapter == '2' :
-    ending_score["ending2"] += 1
+    ending_score["ending1"] += 1
     show_dialog([
       'You lean closer, concern in your voice.',
       f'{name}: "Are you okay? You seem... distant."',
@@ -239,8 +239,7 @@ show_dialog([
   'Luna’s eyes glow faintly, and for a moment, you see a pair of translucent wings behind her.',
   '',
   f'{name}: "Luna... what are you?"',
-  f'Luna: (hesitates) "I... I’m not human, {name}. I’m a star spirit.',
-  'I came to Earth to experience life, but my time here is limited."',
+  f'Luna: (hesitates) "I... I’m not human, {name}. I’m a star spirit. I came to Earth to experience life, but my time here is limited."',
   '',
   'You’re stunned.',
   'Luna looks at you with a mix of fear and hope, waiting for your reaction.',
@@ -269,7 +268,7 @@ while True :
     break
   
   elif chapter == '2' :
-    ending_score["ending2"] += 1
+    ending_score["ending1"] += 1
     show_dialog([
       'Luna looks down, her voice barely a whisper.',
       'Luna: "One month. That’s all I have left."',
@@ -289,3 +288,78 @@ while True :
   else :
     print("Please put the number 1-3")
     time.sleep(2)
+
+input('\nPlease enter to go to the next chapter')
+reset_terminal()
+
+show_dialog([
+'Chapter 4: Choices and Consequences',
+''
+])
+
+if ending_score['ending3'] > 0 :
+  show_dialog([
+    'After learning Luna’s secret, you struggle to process what it means.',
+    'You distance yourself, unsure of how to handle the truth.',
+    'Luna, sensing your hesitation, stops coming to the park.',
+    '',
+    'Days turn into weeks, and you realize you haven’t seen her since that night.',
+    'You return to the park, hoping to find her, but she’s nowhere to be found.',
+    'The stars above seem dimmer, as if a part of their light has vanished.',
+    '',
+    f'{name}: "Luna... I’m sorry."',
+    '',
+    'You never see her again, and the memory of her becomes a haunting reminder of what could have been.',
+    'The story ends with you sitting alone in the park, strumming your guitar under the empty night sky.',
+    '',
+    'You got Lost Connection ending\n(Tragic Ending)'
+  ])
+
+elif ending_score['ending2'] > 0 :
+  show_dialog([
+    'You and Luna spend her final month together, creating beautiful memories.', 
+    'You take her to your favorite places, play music for her, and share your dreams.',
+    'But as the days pass, the inevitability of her departure looms over you.',
+    '',
+    'On her last night, the two of you sit under the stars.',
+    'Luna takes your hand and smiles, though her eyes are filled with tears.',
+    '',
+    f'Luna: "Thank you for making my time here so special. I’ll never forget you, {name}."',
+    '',
+    'As the first light of dawn breaks, Luna’s form begins to fade.',
+    'She disappears, leaving behind only the memory of her laughter and the warmth of her touch.',
+    'Though heartbroken, you know you gave her the best of your world, and her time with you was a gift.',
+    '',
+    'You got Fleeting Moments ending\n(Bittersweet Ending)'
+])
+
+elif ending_score['ending1'] > 0 :
+  show_dialog([
+    'After learning Luna’s secret, you vow to make the most of your time together.',
+    'As the days pass, you grow even closer, and Luna begins to hope that maybe, just maybe, she can stay on Earth with you.',
+    '',
+    'On the final night of her time on Earth, you play a song for her under the stars.',
+    'As the last note fades, Luna’s form begins to shimmer.',
+    'But instead of disappearing, she transforms into a human, her star spirit essence merging with the Earth.',
+    '',
+    f'Luna: "You gave me a reason to stay, {name}. The stars may have brought me here, but you made me want to remain."',
+    '',
+    'The two of you embrace, knowing that your love has transcended the boundaries between worlds.',
+    '',
+    'You got Eternal Starlight ending\n(Romantic Ending)'
+  ])
+
+else :
+  print('system unable to access variable ending_score')
+
+print(
+  '',
+  '',
+  'That all for my game!',
+  'Thank you so much for playing this game.',
+  'My name is Pocky (web developer) and this game is for school assignment.',
+  'I know it beyond the work that teacher told me to do, but I love codind and I have so much fun creating this game!',
+  '',
+  'Anyway if you found bug or have question you can contact me at <pocky1559@proton.me>',
+  'or Discord <pocky_aviation>',
+  sep='\n')
