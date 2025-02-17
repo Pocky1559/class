@@ -6,6 +6,11 @@ import platform
 # set all of the necessary variable
 game_name = "Starlight Serenade"
 name = "Pocky"
+ending_score = {
+  'ending1': 0,
+  'ending2': 0,
+  'ending3': 0
+}
 
 # set all of the necessary function
 def reset_terminal() :
@@ -36,26 +41,36 @@ def welcome_screen() :
 
 def set_name() :
   global name
-  reset_terminal()
-  time.sleep(1)
-  
-  print(f"Do you want to use {name} name or create your own?", "\n")
-  name_confirm = input("Type \"Y\" for change the name, or Type \"N\" for use the default name: ")
-  print("")
+  while True :
+    reset_terminal()
+    # time.sleep(1)
 
-  if name_confirm.upper() == "Y" :
-    name = input("Insert your name: ")
-    print(f"Your name is {name}", "\n")
-    input("Please Enter to play game...")
-  
-  elif name_confirm.upper() == "N" :
-    print(f"Your name is {name}", "\n")
-    input("Please Enter to play game...")
-  
-  else :
-    print("Press type Y or N.")
-    time.sleep(1.5)
-    set_name()
+    print(f"Do you want to use {name} name or create your own?", "\n")
+    name_confirm = input("Type \"Y\" for change the name, or Type \"N\" for use the default name: ")
+    print("")
+
+    if name_confirm.upper() == "Y" :
+      insert_name = input("Insert your name: ")
+
+      if insert_name != '' :
+        name = insert_name
+        print(f"Your name is {name}", "\n")
+        input("Please Enter to play game...")
+        break
+      else :
+        print('\nName cannot be empty please put your name again.')
+        # time.sleep(2.5)
+        continue
+
+
+    elif name_confirm.upper() == "N" :
+      print(f"Your name is {name}", "\n")
+      input("Please Enter to play game...")
+      break
+
+    else :
+      print("Press type Y or N.")
+      # time.sleep(1.5)
 
 def delay(text) :
   return len(text) / 20
@@ -63,21 +78,22 @@ def delay(text) :
 def show_dialog(array) :
   for text in array :
     print(text)
-    time.sleep(delay(text))
+    # time.sleep(delay(text))
 
 def show_option(array) :
   for text in array :
     print(text)
 
 # run the game
+reset_terminal()
 welcome_screen()
 
 reset_terminal()
-time.sleep(1)
+# time.sleep(1)
 print(game_name)
-time.sleep(3.5)
+# time.sleep(3.5)
 reset_terminal()
-time.sleep(1.5)
+# time.sleep(1.5)
 
 # Chapter 1
 show_dialog([
@@ -97,6 +113,8 @@ show_dialog([
   "",
   "You notice something strange about her—her presence feels almost otherworldly, but you can’t quite put your finger on it.",
   "",
+  'What do you say?',
+  ''
 ])
 
 show_option([
@@ -105,7 +123,7 @@ show_option([
   "3. \"Only when the stars are out. It feels like the right time to play.\""
 ])
 
-def option1() :
+while True :
   chapter = input("Choose your response: ")
 
   print("")
@@ -116,6 +134,7 @@ def option1() :
       "She sits beside you, and the two of you talk about your lives.",
       "You feel an instant connection, as if you’ve known her for years."
     ])
+    break
 
   elif chapter == "2" :
     show_dialog([
@@ -124,6 +143,7 @@ def option1() :
       "She sits beside you, and you share stories about your childhood.",
       "You notice she avoids talking about her own past, but her laughter is infectious."
     ])
+    break
 
   elif chapter == "3" :
     show_dialog([
@@ -132,10 +152,75 @@ def option1() :
       "She sits beside you, and the two of you gaze at the night sky.",
       "You feel a strange sense of peace, as if the universe itself is watching over you."
     ])
+    break
 
   else :
     print("Please put the number 1-3")
-    time.sleep(2)
-    option1()
+    # time.sleep(2)
 
-option1()
+input('\nPlease enter to go to the next chapter')
+reset_terminal()
+
+show_dialog([
+  'Chapter 2: A Glimpse of Mystery',
+  '',
+  'Luna sits beside you, and the two of you talk for hours.',
+  'She’s curious about your music, and you find yourself opening up to her in a way you haven’t with anyone else.',
+  '',
+  'As the night deepens, Luna glances at the sky.',
+  '',
+  f'Luna: "The stars are so bright tonight. Do you believe in fate, {name}?"',
+  f'{name}: "I’m not sure. Why do you ask?"',
+  'Luna: "Sometimes, I feel like the stars guide us to where we’re meant to be."',
+  '',
+  'You notice her shiver slightly, though the night isn’t cold.',
+  '',
+  'What do you do?',
+  ''
+])
+
+show_option([
+  '1. Offer her your jacket.',
+  '2. Ask if she’s okay.',
+  '3. Joke, "Are you saying the stars brought us together?"'
+])
+
+while True :
+  chapter = input('Choose your response: ')
+
+  print('')
+  if chapter == '1' :
+    ending_score["ending1"] += 1
+    show_dialog([
+      'You take off your jacket and drape it over her shoulders.',
+      'Luna looks surprised but grateful.',
+      'Luna: "Thank you... You’re very kind."',
+      'Her voice is soft, and for a moment, you see a faint glow in her eyes.'
+    ])
+    break
+  
+  elif chapter == '2' :
+    ending_score["ending2"] += 1
+    show_dialog([
+      'You lean closer, concern in your voice.',
+      f'{name}: "Are you okay? You seem... distant."',
+      'Luna hesitates, then smiles.',
+      'Luna: "I’m fine. Just... lost in thought."',
+      'Her smile doesn’t quite reach her eyes, and you sense she’s hiding something.'
+    ])
+    break
+  
+  elif chapter == '3' :
+    ending_score["ending2"] += 1
+    show_dialog([
+      'You grin and nudge her playfully.',
+      f'{name}: "Are you saying the stars brought us together?"',
+      'Luna laughs, a sound like wind chimes in the breeze.',
+      'Luna: "Maybe they did. Or maybe it’s just luck."',
+      'Her laughter fades, and she looks at you with a hint of sadness.'
+    ])
+    break
+
+  else :
+    print("Please put the number 1-3")
+    # time.sleep(2)
